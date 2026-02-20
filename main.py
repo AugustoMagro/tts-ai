@@ -10,21 +10,18 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 templates = Jinja2Templates(directory="templates")
 
+title = "teste"
+
 @app.get("/")
 async def root():
     print("teste")
     return {"message": "Hello World"}
 
-@app.get("/audio")
-async def root(texto: str, voice: str):
-    resp = audio_generator(texto, voice)
+@app.post("/api/audio")
+async def root():
+    resp = audio_generator("Oi, isso é um teste", "pm_alex")
     return FileResponse("audio.wav")
 
 @app.get("/app/", include_in_schema=False, name="home")
 async def read_app(request: Request):
-    return templates.TemplateResponse(request, "home.html")
-
-@app.get("/app/teste", include_in_schema=False, name="teste")
-async def read_app(request: Request):
-    return templates.TemplateResponse(request, "teste.html")
-
+    return templates.TemplateResponse(request, "home.html", {"title":title})
