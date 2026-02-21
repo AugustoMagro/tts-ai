@@ -1,12 +1,16 @@
 async function GetAudio() {
   const formData = new FormData();
 
-  const texto = "Oi, isso é um teste"
-  const voice = "pm_alex"
+  const texto = document.getElementById("input-texto").value
+  const voice = document.getElementById("voices").value
 
   try { 
     const res = await fetch('/api/audio', {
       method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ texto, voice}),
     });
     if (!res.ok) {
       const data = await res.json();
