@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Narrador de Texto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+  <script src="{{ url_for('static', path='js/js.js') }}"></script>
+</head>
+<body>
+  <div class="card">
+    <span class="icon">🎙️</span>
+    <h1>Bem-vindo ao seu <span>narrador</span> de texto</h1>
+
+    <textarea id="texto-input" placeholder="Digite ou cole o texto que deseja narrar..."></textarea>
+
+    <div class="controls">
+      <select name="voices" id="voices">
+        <option value="pm_alex">Alex</option>
+        <option value="pf_dora">Dora</option>
+      </select>
+
+      <button id="bt-gerar-fala" onclick="GetAudio()">
+        Gerar Fala
+      </button>
+      <a id="audio-file" href=""></a>
+    </div>
+  </div>
+</body>
+</html>

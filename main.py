@@ -18,9 +18,8 @@ class Audio(BaseModel):
     voice: str
 
 @app.get("/")
-async def root():
-    print("teste")
-    return {"message": "Hello World"}
+async def root(request: Request):
+    return templates.TemplateResponse(request, "index.html")
 
 @app.post("/api/audio")
 async def root(audio: Audio):
