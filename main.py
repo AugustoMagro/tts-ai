@@ -26,7 +26,3 @@ async def root(audio: Audio):
     resp = audio_generator(audio.texto, audio.voice)
     print(resp)
     return FileResponse("audio.wav")
-
-@app.get("/app/", include_in_schema=False, name="home")
-async def read_app(request: Request):
-    return templates.TemplateResponse(request, "home.html", {"title":title})
