@@ -4,7 +4,7 @@ import numpy as np
 
 def audio_generator(text: str, voice) -> str:
     lang_code = "p"
-    pipeline = KPipeline(lang_code=lang_code)
+    pipeline = KPipeline(lang_code=lang_code, repo_id='hexgrad/Kokoro-82M')
 
     audio_chunks = []
 
