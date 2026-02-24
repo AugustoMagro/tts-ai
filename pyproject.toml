@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
-license = "MIT AND (Apache-2.0 OR BSD-2-Clause)"
+license = {text = "MIT"}
 dependencies = [
     "fastapi[standard]>=0.129.0",
     "jinja2>=3.1.6",
